@@ -89,6 +89,7 @@ This is just for general knowledge as these inner workings happen automatically.
 	.AddField("contact_country", "[name=country]", ".country-wrapper")
 	.AddField("custom_invoice_name", "#invoice-name", "#invoice-name-wrapper")
 	.AddField("notes", "[name=notes]", ".notes-wrapper")
+	.SetRecaptcha('#recaptcha')
 ```
 Here, similarly to the previous snippet, we define some other fields. These, unlike the first batch, will not be replaced by iframes but rather be hosted on under your domain's origin. 
 We still need to map them for the plugin to be able to take control of them.
@@ -97,6 +98,12 @@ Also, if you choose to disable/hide them via the payment page configuration, the
 It is generally a wise idea to map as many of these fields as possible. Anything that isn't needed, will not be shown. On the other hand, should you choose to reconfigure the payment page to include them, they will already be there.
 For instance, you may decide at first that you don't need the card_holder_name for now. But if you don't map it, and then decide to enable it via configuration, there will no field for it to use, so you would need to actually edit the page to add it manually. 
 Best to map them all, just in case.
+
+Also notice the last part:
+```
+.SetRecaptcha('#recaptcha')
+```
+If your page is configured to be protected by a recaptcha, this command will replace the selected element with an iframe with a recaptcha
 
 ```javascript
 $.get("payment.php", async (resp) => {
