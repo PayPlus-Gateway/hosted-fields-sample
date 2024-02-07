@@ -1,5 +1,5 @@
 # Using the hosted fields feature with PayPlus.
-PayPlus offers the ability to host your own payment page on your own website without relying on external redirect pages or iframes.
+PayPlus offers the ability to host your own payment page on your own website without relying on externally hosted payment forms.
 This repository contains a simple demo showing how to achieve that. 
 
 In order to be able to run this demo, you need:
