@@ -11,6 +11,6 @@
   "dependencies": {
     "bootstrap": "^5.3.0",
     "jquery": "^3.7.0",
-    "payplus-hosted-fields": "^0.0.3"
+    "payplus-hosted-fields": "^1.1.0"
   }
 }
