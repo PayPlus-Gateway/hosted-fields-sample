@@ -35,22 +35,27 @@ hf.SetMainFields({
 	.SetRecaptcha('#recaptcha')
 $(() => {
 	$.get("payment.php", async (resp) => {
-		if (resp.results.status == "success") {
-			try {
-				await hf.CreatePaymentPage({
-					hosted_fields_uuid: resp.data.hosted_fields_uuid,
-					page_request_uid: resp.data.page_request_uid,
-					origin: 'https://restapidev.payplus.co.il'
+		try {
+			if (resp.results.status == "success") {
+				try {
+					await hf.CreatePaymentPage({
+						hosted_fields_uuid: resp.data.hosted_fields_uuid,
+						page_request_uid: resp.data.page_request_uid,
+						origin: 'https://restapidev.payplus.co.il'
+					});
+				} catch (error) {
+					alert(error);
+				}
+				hf.InitPaymentPage.then((data) => {
+					$("#create-payment-form").hide();
+					$("#payment-form").show();
 				});
-			} catch (error) {
-				alert(error);
+			} else {
+				alert(resp.results.message);
 			}
-			hf.InitPaymentPage.then((data) => {
-				$("#create-payment-form").hide();
-				$("#payment-form").show();
-			});
-		} else {
-			alert(resp.results.message);
+		} catch (error) {
+			$("#error").append(`<div>Error:</div>`);
+			$("#error").append(`<pre>${JSON.stringify(resp, null, 2)}</pre>`);
 		}
 	});
 });
