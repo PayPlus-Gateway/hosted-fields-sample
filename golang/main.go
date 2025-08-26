@@ -9,8 +9,8 @@ import (
 	"net/http"
 )
 
-const portNum string = ":8080"
 const (
+	portNum        string = ":8080"
 	originDomain   string = "https://www.example.com"
 	successURL     string = "https://www.example.com/success"
 	failureURL     string = "https://www.example.com/failure"

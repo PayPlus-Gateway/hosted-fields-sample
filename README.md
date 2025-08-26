@@ -235,3 +235,5 @@ Secure3d transactions require the phone number to be in a proper format: country
 
 In the demo we've added a select field for the country codes and mapped it to card_holder_phone_prefix, followed by a simple input field for the phone number and then mapped it to card_holder_phone allowing the customer to select their country code and then type their actual phone number.
 The card_holder_phone_prefix field is not required. You may elect to omit it if you can ensure that the customer will fill in their phone number in a proper format. The final implementation is up to the website developer.  
+
+**If your plugin version is below 1.2.0, you MUST update to the latest version to take advantage of these changes**
